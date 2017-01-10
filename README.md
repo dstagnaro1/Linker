@@ -8,13 +8,10 @@ To get this up and running on your computer, have Xcode installed and download t
 
 ### Prerequisites
 
-Just Xcode and this Repository
+* Xcode
+* This repository
 
 ### Installing
-
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
 
 Open the project into Xcode. Run the program to see that it compiles correctly. If it works correctly, stop the program.
 If it doesn't compile correctly, send me a message at https://twitter.com/talldstag1
@@ -22,4 +19,6 @@ Otherwise, click Product on the top bar of Xcode. Next click Archive. After a mi
 
 ### Use
 Run the app
-Go to any url and copy it, if you can't find one use this www.google.com
+Go to any url and copy it
+Click the app logo at the top of the screen, click Make Link, and paste it somewhere where clickable links can be used
+If you don't have access to any at the time, use TextEdit in a Rich Text view
