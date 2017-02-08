@@ -23,6 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let menu = NSMenu()
         menu.addItem(NSMenuItem(title: "Make Link", action: #selector(AppDelegate.linker), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Strike", action: #selector(AppDelegate.strike), keyEquivalent: ""))
         menu.addItem(NSMenuItem(title: "Quit", action: #selector(AppDelegate.quit), keyEquivalent: ""))
         
         item?.menu = menu
@@ -35,12 +36,30 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func linker() {
         
         // public.utf8-plain-text
-        
         printPasteboard()
     }
     
     func quit() {
         NSApplication.shared().terminate(self)
+    }
+    
+    func strike() {
+        if let items = NSPasteboard.general().pasteboardItems {
+            for item in items {
+                for type in item.types {
+                    if type == plainText {
+                        if let txt = item.string(forType: type) {
+                            NSPasteboard.general().clearContents()
+                            
+//                            var actualTxt = ""
+                            
+                            NSPasteboard.general().setString("<s>\(txt)</s>", forType: plainHtml)
+                            NSPasteboard.general().setString("~~\(txt)~~", forType: plainText)
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func printPasteboard() {
